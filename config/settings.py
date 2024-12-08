@@ -10,7 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+from django.contrib import messages
 from pathlib import Path
+from environs import Env
+import os
+
+# for environment variable
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-0#p(&lgsme@v0io4tr%vz553tijstwjt%hmkj9a-tb2odxp*dp"
+SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -42,6 +49,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     # 'allauth.socialaccount',
+    'rosetta',
 
     # Local
     'accounts.apps.AccountsConfig',
@@ -113,18 +121,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
-USE_I18N = True
-
-USE_TZ = True
+# LANGUAGE_CODE = "en-us"
+#
+# TIME_ZONE = "UTC"
+#
+# USE_I18N = True
+#
+# USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+# STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -160,3 +168,30 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # crispy forms setting
 CRISPY_ALLOWED_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Internationalization
+# https://docs.djangoproject.com/en/4.0/topics/i18n/
+
+LANGUAGE_CODE = 'fa'
+TIME_ZONE = 'Asia/Tehran'
+USE_TZ = True
+USE_I18N = True
+USE_L10N = True
+# Rosetta Languages
+LOCALE_PATHS = ('templates/locale',)
+LANGUAGES = (
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
+
+# For messages Framework
+MESSAGES_TAGS = {
+    messages.constants.ERROR: 'danger',
+}
+

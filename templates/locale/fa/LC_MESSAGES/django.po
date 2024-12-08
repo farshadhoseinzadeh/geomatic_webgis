@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-19 17:40+0330\n"
+"POT-Creation-Date: 2024-12-08 14:30+0330\n"
 "PO-Revision-Date: 2024-11-19 16:00+0330\n"
 "Last-Translator:   <feri@feri.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,23 +18,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
-
-#: .\_base.html:87
-msgid "Logout"
-msgstr "خروج"
-
-#: .\_base.html:90
-msgid "Profile"
-msgstr "حساب کاربری"
-
-#: .\_base.html:94 .\account\login.html:13
-msgid "Login"
-msgstr "ورود"
-
-#: .\_base.html:98 .\account\signup.html:7 .\account\signup.html:10
-#: .\account\signup.html:16
-msgid "Sign Up"
-msgstr "ثبت نام"
 
 #: .\account\email\email_confirmation_message.txt:5
 #, python-format
@@ -87,6 +70,10 @@ msgid ""
 "request</a>."
 msgstr ""
 
+#: .\account\login.html:13 .\header.html:79
+msgid "Login"
+msgstr "ورود"
+
 #: .\account\logout.html:9
 msgid "Are you sure to logout?"
 msgstr "مطمئنید میخواهید خارج شوید؟"
@@ -94,6 +81,18 @@ msgstr "مطمئنید میخواهید خارج شوید؟"
 #: .\account\logout.html:12
 msgid "Yes, I'm sure"
 msgstr "بله، مطمئنم"
+
+#: .\account\signup.html:7 .\account\signup.html:10 .\header.html:83
+msgid "Sign Up"
+msgstr "ثبت نام"
+
+#: .\header.html:72
+msgid "Logout"
+msgstr "خروج"
+
+#: .\header.html:75
+msgid "Profile"
+msgstr "حساب کاربری"
 
 #: .\home.html:5 .\home.html:9
 msgid "Home Page"
